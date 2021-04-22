@@ -1,6 +1,6 @@
 # HypnosisRising
 
-The Hypnosis Rising Case Recorder is a tool for capturing the essential content of a session.
+The Hypnosis Rising Case Recorder is a tool for capturing the goals and outcomes of a hypnotherapy case.
 
 <h2>Principles of Hypnotherapy</h2>
 
