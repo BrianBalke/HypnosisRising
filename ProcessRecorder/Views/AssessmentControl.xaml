@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="HypnosisRising.ProcessRecorder.Views.AssessmentControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:viewmodels="clr-namespace:HypnosisRising.ProcessRecorder.ViewModels"
+             xmlns:mvecv="clr-namespace:HypnosisRising.MVVMExtensions.Converters;assembly=MVVMExtensions"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MVVMExtensions;component/Resources/LayoutStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <mvecv:IsStringEmptyConverter x:Key="EnableRank"/>
+            <viewmodels:AssessmentControlViewModel x:Key="dAssess" 
+                Positive="Alert" Satisfaction="10" 
+                Negative="Weary" Discomfort="4"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid DataContext="{StaticResource dAssess}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Image Source="pack://application:,,,/MVVMExtensions;component/Resources/ThumbUp.png" Width="20" Height="20"/>
+        <TextBox Grid.Column="1" Text="{Binding Positive}"
+                 VerticalContentAlignment="Center"
+                Style="{StaticResource styFormInput}"/>
+        <TextBox 
+            Grid.Column="2" 
+            Text="{Binding Satisfaction, StringFormat=##}" 
+            IsEnabled="{Binding Positive, Converter={StaticResource EnableRank}}"
+            HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"
+            Style="{StaticResource styFormInput}"/>
+        <Image Grid.Row="1" Source="pack://application:,,,/MVVMExtensions;component/Resources/ThumbDown.png" Width="20" Height="20"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Negative}"
+                 VerticalContentAlignment="Center"
+                Style="{StaticResource styFormInput}"/>
+        <TextBox 
+            Grid.Row="1" Grid.Column="2" 
+            Text="{Binding Discomfort, StringFormat=##}"
+            IsEnabled="{Binding Negative, Converter={StaticResource EnableRank}}"
+            HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"
+            Style="{StaticResource styFormInput}"/>
+    </Grid>
+</UserControl>

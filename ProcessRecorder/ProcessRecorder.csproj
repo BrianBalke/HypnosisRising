@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>ProcessRecorder</AssemblyName>
+    <RootNamespace>HypnosisRising.ProcessRecorder</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CaseWork\CaseWork.csproj">
+      <Private>true</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\MVVMExtensions\MVVMExtensions.csproj">
+      <Private>true</Private>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

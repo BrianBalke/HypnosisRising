@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="HypnosisRising.ProcessRecorder.Views.StateControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:model="clr-namespace:HypnosisRising.CaseWork.Process;assembly=CaseWork"
+             xmlns:views="clr-namespace:HypnosisRising.ProcessRecorder.Views"
+             xmlns:viewmodels="clr-namespace:HypnosisRising.ProcessRecorder.ViewModels"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d"
+             d:Height="300" d:Width="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MVVMExtensions;component/Resources/LayoutStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="TextBlock" x:Key="AssessTag">
+                <Setter Property="FontSize" Value="28"/>
+                <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="TextAlignment" Value="Center"/>
+            </Style>
+            <DataTemplate DataType="{x:Type viewmodels:AssessmentControlViewModel}">
+                <views:AssessmentControl/>
+            </DataTemplate>
+            <model:Assessment x:Key="dPhysical" 
+            Positive="Energized" Satisfaction="2" 
+            Negative="Dizzy" Discomfort="6"/>
+            <model:Assessment x:Key="dEmotional" 
+            Positive="" Satisfaction="0" 
+            Negative="Frightened" Discomfort="4"/>
+            <model:Assessment x:Key="dMental" 
+            Positive="Alert" Satisfaction="3" 
+            Negative="" Discomfort="0"/>
+            <model:Assessment x:Key="dSpiritual" 
+            Positive="" Satisfaction="0" 
+            Negative="Vulnerable" Discomfort="5"/>
+            <model:State x:Key="dState"
+            Description="Almost rode over a cliff on a mountain trail."
+            Observation="Briefly dissociated"
+            Physical="{StaticResource dPhysical}"
+            Emotional="{StaticResource dEmotional}"
+            Mental="{StaticResource dMental}"
+            Spiritual="{StaticResource dSpiritual}"/>
+            <viewmodels:StateControlViewModel x:Key="dStateVM"
+            State="{StaticResource dState}"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <StackPanel d:DataContext="{StaticResource dStateVM}">
+        <TextBlock Text="Description" Style="{StaticResource styFormLabel}"/>
+        <TextBox Text="{Binding Description}" TextWrapping="Wrap" Style="{StaticResource styFormInput}"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="P" Style="{StaticResource AssessTag}"/>
+            <ContentControl 
+                Grid.Column="1" 
+                Content="{Binding PhysicalVM}"
+                HorizontalAlignment="Stretch"
+                Style="{StaticResource styFormInput}"/>
+            <TextBlock Grid.Row="1" Text="E" Style="{StaticResource AssessTag}"/>
+            <ContentControl 
+                Grid.Row="1" Grid.Column="1" 
+                Content="{Binding EmotionalVM}"
+                HorizontalAlignment="Stretch"
+                Style="{StaticResource styFormInput}"/>
+            <TextBlock Grid.Row="2" Text="M" Style="{StaticResource AssessTag}"/>
+            <ContentControl 
+                Grid.Row="2" Grid.Column="1" 
+                Content="{Binding MentalVM}"
+                HorizontalAlignment="Stretch"
+                Style="{StaticResource styFormInput}"/>
+            <TextBlock Grid.Row="3" Text="S" Style="{StaticResource AssessTag}"/>
+            <ContentControl 
+                Grid.Row="3" Grid.Column="1" 
+                Content="{Binding SpiritualVM}"
+                HorizontalAlignment="Stretch"
+                Style="{StaticResource styFormInput}"/>
+        </Grid>
+        <TextBlock Text="Observations" Style="{StaticResource styFormLabel}"/>
+        <TextBox Text="{Binding Observation}" TextWrapping="Wrap" Style="{StaticResource styFormInput}"/>
+    </StackPanel>
+</UserControl>
