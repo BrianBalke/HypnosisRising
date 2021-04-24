@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Mail;
 using System.Text;
 
 namespace HypnosisRising.CaseWork.Roles
@@ -14,12 +15,12 @@ namespace HypnosisRising.CaseWork.Roles
     /// partner, emergency contact, or <see cref="Clinician"/>.
     /// </remarks>
     /// 
-    /// <seealso cref="Individual"/>
+    /// <seealso cref="Person"/>
     /// <seealso cref="Client"/>
     /// <seealso cref="Therapist"/>
     /// <seealso cref="Clinician"/>
     [Serializable]
-    public class Contact : Individual
+    public class Contact : Person
     {
         private string email;
         private string phone;

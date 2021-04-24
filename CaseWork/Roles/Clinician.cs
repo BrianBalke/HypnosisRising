@@ -19,6 +19,22 @@ namespace HypnosisRising.CaseWork.Roles
     /// <seealso cref="Contact"/>
     public class Clinician : Contact
     {
+
+        public Clinician()
+        {
+            base.Context = Common.Environment.Commerce;
+        }
+
+        /// <summary>
+        /// As respect the <see cref="Client"/>, the clinician is always a 
+        /// service provider.
+        /// </summary>
+        public override Common.Environment Context
+        {
+            get { return base.Context; }
+            set { }
+        }
+
         /// <summary>
         /// Clinical categories licensed under California law.
         /// </summary>

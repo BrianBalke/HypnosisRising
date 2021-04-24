@@ -10,28 +10,29 @@ using System.Threading.Tasks;
 
 namespace HypnosisRising.RoleAssigner.ViewModels
 {
-    public class IndividualControlViewModel : BindableBase
+    public class PersonFormViewModel : BindableBase
     {
 
-        public IndividualControlViewModel()
+        public PersonFormViewModel()
         {
         }
-        public IndividualControlViewModel(Individual p_individual)
+        public PersonFormViewModel(Person p_person)
         {
-            Individual = p_individual;
+            Person = p_person;
         }
 
-        private Individual individual;
+        private Person person;
 
-        public Individual Individual
+        public Person Person
         {
-            get { return individual; }
-            set { 
-                individual = value;
-                firstName = individual.FirstName;
-                lastName = individual.LastName;
-                context = individual.Context;
-                role = individual.Role;
+            get { return person; }
+            set {
+                SetProperty(ref person, value);
+                FirstName = person.FirstName;
+                LastName = person.LastName;
+                Nickname = person.Nickname;
+                Context = person.Context;
+                Role = person.Role;
             }
         }
 
@@ -46,6 +47,12 @@ namespace HypnosisRising.RoleAssigner.ViewModels
         {
             get { return lastName; }
             set { SetProperty(ref lastName, value); }
+        }
+        private string nickName;
+        public string Nickname
+        {
+            get { return nickName; }
+            set { SetProperty(ref nickName, value); }
         }
         private CaseWork.Common.Environment context;
         public CaseWork.Common.Environment Context
@@ -66,10 +73,10 @@ namespace HypnosisRising.RoleAssigner.ViewModels
 
         public void OnUpdate()
         {
-            individual.FirstName = firstName;
-            individual.LastName = lastName;
-            individual.Context = context;
-            individual.Role = role;
+            person.FirstName = firstName;
+            person.LastName = lastName;
+            person.Context = context;
+            person.Role = role;
         }
     }
 }

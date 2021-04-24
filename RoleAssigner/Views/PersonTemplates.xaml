@@ -1,0 +1,70 @@
+﻿<ResourceDictionary 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:viewmodels="clr-namespace:HypnosisRising.RoleAssigner.ViewModels"
+        xmlns:cwcmn="clr-namespace:HypnosisRising.CaseWork.Common;assembly=CaseWork"
+        xmlns:mvecv="clr-namespace:HypnosisRising.MVVMExtensions.Converters;assembly=MVVMExtensions">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/MVVMExtensions;component/Resources/LayoutStyles.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <DataTemplate x:Key="PersonNameInput" DataType="{x:Type viewmodels:PersonFormViewModel}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" SharedSizeGroup="Person"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="First" Style="{StaticResource styFormLabel}"/>
+            <TextBox Grid.Column="1" Text="{Binding FirstName}" Style="{StaticResource styFormInput}"/>
+            <TextBlock Grid.Row="1" Text="Last" Style="{StaticResource styFormLabel}"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding LastName}" Style="{StaticResource styFormInput}"/>
+            <TextBlock Grid.Row="2" Text="Nickname" Style="{StaticResource styFormLabel}"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Nickname}"
+                    Style="{StaticResource styFormInput}"/>
+        </Grid>
+    </DataTemplate>
+    <DataTemplate x:Key="PersonRoleInput" DataType="{x:Type viewmodels:PersonFormViewModel}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" SharedSizeGroup="Person"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+             <TextBlock Text="In" Style="{StaticResource styFormLabel}"/>
+            <ComboBox Grid.Column="1"
+                    ItemsSource="{Binding Source={mvecv:EnumBindingSource {x:Type cwcmn:Environment}}}"
+                    Style="{StaticResource styFormInput}"/>
+            <TextBlock Grid.Row="1" Text="Role" Style="{StaticResource styFormLabel}"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Role}"
+                    Style="{StaticResource styFormInput}"/>
+        </Grid>
+    </DataTemplate>
+    <DataTemplate x:Key="ContactInput" DataType="{x:Type viewmodels:ContactFormViewModel}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" SharedSizeGroup="Person"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="E-Mail" Style="{StaticResource styFormLabel}"/>
+            <TextBox Grid.Column="1" Text="{Binding EMail}" Style="{StaticResource styFormInput}"/>
+            <TextBlock Grid.Row="1" Text="Phone" Style="{StaticResource styFormLabel}"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Phone}" Style="{StaticResource styFormInput}"/>
+            <CheckBox Grid.Row="2" Grid.Column="1" 
+                      Content="Has Text" IsChecked="{Binding HasText}"
+                      Style="{StaticResource styFormInput}"/>
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>

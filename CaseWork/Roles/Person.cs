@@ -16,7 +16,7 @@ namespace HypnosisRising.CaseWork.Roles
     /// <seealso cref="Therapist"/>
     /// </summary>
     [Serializable]
-    public class Individual
+    public class Person
     {
         private string firstName;
         private string lastName;
@@ -54,14 +54,14 @@ namespace HypnosisRising.CaseWork.Roles
         /// <summary>
         /// Context of the relationship. <see cref="Environment"/>
         /// </summary>
-        public Common.Environment Context
+        public virtual Common.Environment Context
         {
             get { return context; }
             set { context = value; }
         }
 
         /// <summary>
-        /// Role within the context (i.e. 'Mother', 'Father' with <see cref="Individual.Context"/>
+        /// Role within the context (i.e. 'Mother', 'Father' with <see cref="Person.Context"/>
         /// <see cref="Environment.Family"/>.
         /// </summary>
         public string Role

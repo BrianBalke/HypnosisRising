@@ -24,6 +24,21 @@ namespace HypnosisRising.CaseWork.Roles
         private string insurer;
         private string policyNumber;
 
+        public Therapist()
+        {
+            base.Context = Common.Environment.Commerce;
+        }
+
+        /// <summary>
+        /// As respect the <see cref="Client"/>, the therapist is always a 
+        /// service provider.
+        /// </summary>
+        public override Common.Environment Context
+        {
+            get { return base.Context; }
+            set { }
+        }
+
         /// <summary>
         /// Office address, captured as a <see cref="Location"/>.
         /// </summary>
