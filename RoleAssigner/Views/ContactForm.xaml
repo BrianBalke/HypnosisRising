@@ -8,27 +8,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
              xmlns:prism="http://prismlibrary.com/"
-             prism:ViewModelLocator.AutoWireViewModel="True">
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             d:DataContext="{x:Static viewmodels:DesignData.HeadroomVM}">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="PersonTemplates.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <model:Contact
-                x:Key="dContact"
-                FirstName="George"
-                LastName="Shaw"
-                Nickname="Jr"
-                Context="{x:Static Member=cwcmn:Environment.Friendship}"
-                Role="Intellectual"
-                EMail="gshaw@cloud9.god"
-                Phone="01-23-235823"
-                HasText="True"/>
-            <viewmodels:ContactFormViewModel x:Key="dContactVM" Contact="{StaticResource ResourceKey=dContact}"/>
         </ResourceDictionary>
     </UserControl.Resources>
-    <Grid Grid.IsSharedSizeScope="True"
-        d:DataContext="{StaticResource ResourceKey=dContactVM}">
+    <Grid Grid.IsSharedSizeScope="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>

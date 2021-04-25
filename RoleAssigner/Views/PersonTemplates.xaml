@@ -38,7 +38,7 @@
                 <ColumnDefinition Width="auto" SharedSizeGroup="Person"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-             <TextBlock Text="In" Style="{StaticResource styFormLabel}"/>
+             <TextBlock Text="Through" Style="{StaticResource styFormLabel}"/>
             <ComboBox Grid.Column="1"
                     ItemsSource="{Binding Source={mvecv:EnumBindingSource {x:Type cwcmn:Environment}}}"
                     Style="{StaticResource styFormInput}"/>

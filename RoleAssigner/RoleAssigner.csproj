@@ -12,4 +12,7 @@
     <ProjectReference Include="..\CaseWork\CaseWork.csproj" />
     <ProjectReference Include="..\MVVMExtensions\MVVMExtensions.csproj" />
   </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /Y $(TargetPath) $(SolutionDir)CaseRecorder\$(OutDir)Modules\" />
+  </Target>
 </Project>

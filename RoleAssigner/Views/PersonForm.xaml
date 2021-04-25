@@ -8,23 +8,16 @@
              xmlns:mvecv="clr-namespace:HypnosisRising.MVVMExtensions.Converters;assembly=MVVMExtensions"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d" 
-             d:DesignHeight="110" d:DesignWidth="200"
+             mc:Ignorable="d"
              xmlns:prism="http://prismlibrary.com/"
-             prism:ViewModelLocator.AutoWireViewModel="True">
+             prism:ViewModelLocator.AutoWireViewModel="True" 
+             d:DesignHeight="110" d:DesignWidth="200"
+             d:DataContext="{x:Static viewmodels:DesignData.ShawVM}">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="PersonTemplates.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <model:Person
-                x:Key="dPerson"
-                FirstName="George"
-                LastName="Shaw"
-                Nickname="Jr"
-                Context="{x:Static Member=cwcmn:Environment.Friendship}"
-                Role="Intellectual"/>
-            <viewmodels:PersonFormViewModel x:Key="dPersonVM" Person="{StaticResource ResourceKey=dPerson}"/>
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid Grid.IsSharedSizeScope="True">
@@ -32,7 +25,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <ContentControl ContentTemplate="{StaticResource PersonNameInput}" d:Content="{StaticResource ResourceKey=dPersonVM}"/>
-        <ContentControl Grid.Row="1" ContentTemplate="{StaticResource PersonRoleInput}" d:Content="{StaticResource ResourceKey=dPersonVM}"/>
+        <ContentControl ContentTemplate="{StaticResource PersonNameInput}" Content="{Binding .}"/>
+        <ContentControl Grid.Row="1" ContentTemplate="{StaticResource PersonRoleInput}" Content="{Binding .}"/>
     </Grid>
 </UserControl>

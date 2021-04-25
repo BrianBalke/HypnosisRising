@@ -10,42 +10,16 @@
              mc:Ignorable="d" 
              xmlns:prism="http://prismlibrary.com/"             
              prism:ViewModelLocator.AutoWireViewModel="True"
+             d:DataContext="{x:Static viewmodels:DesignData.TweetyVM}"
              d:Width="250">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="PersonTemplates.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <model:Contact
-                x:Key="dPartner"
-                FirstName="Sweetie"
-                Context="{x:Static Member=cwcmn:Environment.Family}"
-                Role="Nestie"
-                EMail="sweeite@wb.com"/>
-            <model:Contact
-                x:Key="dEmergency"
-                FirstName="Sylvester"
-                EMail="sylvester@wb.com"
-                Context="{x:Static Member=cwcmn:Environment.Career}"
-                Role="Stalker"
-                Phone="911"/>
-            <model:Client
-                x:Key="dClient"
-                FirstName="Tweety"
-                LastName="Bird"
-                Nickname="Canary"
-                EMail="tweety@wb.com"
-                Phone="213-312-8259"
-                HasText="False"
-                DateOfBirth="Jan 1, 1954"
-                Partner="{StaticResource ResourceKey=dPartner}"
-                EmergencyContact="{StaticResource ResourceKey=dEmergency}"
-                BillingRate="250"/>
-            <viewmodels:ClientFormViewModel x:Key="dClientVM" Client="{StaticResource ResourceKey=dClient}"/>
         </ResourceDictionary>
     </UserControl.Resources>
-    <Grid Grid.IsSharedSizeScope="True" 
-          d:DataContext="{StaticResource ResourceKey=dClientVM}">
+    <Grid Grid.IsSharedSizeScope="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
