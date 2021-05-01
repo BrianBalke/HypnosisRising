@@ -90,6 +90,7 @@ namespace HypnosisRising.RoleAssigner.ViewModels
 
             contactVM.OnUpdate();
             partnerVM.OnUpdate();
+            emergencyVM.OnUpdate();
         }
     }
 }

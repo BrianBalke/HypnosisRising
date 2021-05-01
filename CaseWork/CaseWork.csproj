@@ -3,6 +3,10 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>HypnosisRising.CaseWork</RootNamespace>
+    <AssemblyName>HypnosisRising.CaseWork</AssemblyName>
+    <Authors>Brian Balke</Authors>
+    <Company>Hypnosis Rising</Company>
+    <Product>HypnosisRising.CaseRecorder</Product>
   </PropertyGroup>
 
 </Project>

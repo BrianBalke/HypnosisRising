@@ -2,10 +2,10 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:viewmodels="clr-namespace:HypnosisRising.RoleAssigner.ViewModels"
-        xmlns:cwcmn="clr-namespace:HypnosisRising.CaseWork.Common;assembly=CaseWork"
-        xmlns:mvecv="clr-namespace:HypnosisRising.MVVMExtensions.Converters;assembly=MVVMExtensions">
+        xmlns:cwcmn="clr-namespace:HypnosisRising.CaseWork.Common;assembly=HypnosisRising.CaseWork"
+        xmlns:mvecv="clr-namespace:HypnosisRising.MVVMExtensions.Converters;assembly=HypnosisRising.MVVMExtensions">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/MVVMExtensions;component/Resources/LayoutStyles.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HypnosisRising.MVVMExtensions;component/Resources/LayoutStyles.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <DataTemplate x:Key="PersonNameInput" DataType="{x:Type viewmodels:PersonFormViewModel}">

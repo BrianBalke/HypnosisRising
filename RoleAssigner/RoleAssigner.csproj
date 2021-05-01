@@ -2,8 +2,11 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <AssemblyName>RoleAssigner</AssemblyName>
+    <AssemblyName>HypnosisRising.RoleAssigner</AssemblyName>
     <RootNamespace>HypnosisRising.RoleAssigner</RootNamespace>
+    <Authors>Brian Balke</Authors>
+    <Company>Hypnosis Rising</Company>
+    <Product>HypnosisRising.CaseRecorder</Product>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
@@ -13,6 +16,6 @@
     <ProjectReference Include="..\MVVMExtensions\MVVMExtensions.csproj" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy /Y $(TargetPath) $(SolutionDir)CaseRecorder\$(OutDir)Modules\" />
+    <Exec Command="xcopy /Q /Y $(TargetPath) $(SolutionDir)CaseRecorder\$(OutDir)Modules\" />
   </Target>
 </Project>

@@ -100,5 +100,40 @@ namespace HypnosisRising.RoleAssigner.ViewModels
 
         public static ClientFormViewModel TweetyVM =
             new ClientFormViewModel() { Client = Tweety };
+
+        //***** ClientForm
+
+        public static Location Office = new Location()
+        {
+            Street1="1500 Palma Dr.",
+            Street2="Suite 131",
+            District="Ventura",
+            Region="CA",
+            MailCode="93003",
+            Country="USA"
+        };
+
+        public static Therapist Brian = new Therapist()
+        {
+            FirstName = "Brian",
+            LastName = "Balke",
+            Nickname = "Professor",
+            EMail = "brian@hypnosisrising.com",
+            Phone = "805-775-6716",
+            HasText = true,
+            OfficeAddress=Office,
+            OfficeIsMailing=true,
+            Certifier="Hypnotherapists Union 472",
+            Certificate= "47191603",
+            Insurer="American Professional",
+            PolicyNumber="BA8902365"
+        };
+
+        public static TherapistFormViewModel BrianVM =
+            new TherapistFormViewModel(null,null)
+            {
+                Therapist = Brian
+            };
+        
     }
 }

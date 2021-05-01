@@ -19,10 +19,10 @@ namespace HypnosisRising.ProcessRecorder.ViewModels
         }
 
         private State state;
-        private AssessmentControlViewModel physicalVM;
-        private AssessmentControlViewModel emotionalVM;
-        private AssessmentControlViewModel mentalVM;
-        private AssessmentControlViewModel spiritualVM;
+        private AssessmentControlViewModel physicalVM = new AssessmentControlViewModel();
+        private AssessmentControlViewModel emotionalVM = new AssessmentControlViewModel();
+        private AssessmentControlViewModel mentalVM = new AssessmentControlViewModel();
+        private AssessmentControlViewModel spiritualVM = new AssessmentControlViewModel();
 
         public AssessmentControlViewModel PhysicalVM
         {
@@ -47,12 +47,12 @@ namespace HypnosisRising.ProcessRecorder.ViewModels
             get { return state; }
             set { 
                 state = value;
-                description = state.Description;
-                observation = state.Observation;
-                physicalVM = new AssessmentControlViewModel(state.Physical);
-                emotionalVM = new AssessmentControlViewModel(state.Emotional);
-                mentalVM = new AssessmentControlViewModel(state.Mental);
-                spiritualVM = new AssessmentControlViewModel(state.Spiritual);
+                Description = state.Description;
+                Observation = state.Observation;
+                physicalVM.Assessment = state.Physical;
+                emotionalVM.Assessment = state.Emotional;
+                MentalVM.Assessment = state.Mental;
+                SpiritualVM.Assessment = state.Spiritual;
             }
         }
 
