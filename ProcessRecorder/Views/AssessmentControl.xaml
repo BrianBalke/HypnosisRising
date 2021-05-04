@@ -5,15 +5,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:prism="http://prismlibrary.com/"
              xmlns:viewmodels="clr-namespace:HypnosisRising.ProcessRecorder.ViewModels"
-             xmlns:mvecv="clr-namespace:HypnosisRising.MVVMExtensions.Converters;assembly=MVVMExtensions"
+             xmlns:mvecv="clr-namespace:HypnosisRising.MVVMExtensions.Converters;assembly=HypnosisRising.MVVMExtensions"
              prism:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MVVMExtensions;component/Resources/LayoutStyles.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/HypnosisRising.MVVMExtensions;component/Resources/LayoutStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <mvecv:IsStringEmptyConverter x:Key="EnableRank"/>
+            <mvecv:IsStringDefinedConverter x:Key="EnableRank"/>
             <viewmodels:AssessmentControlViewModel x:Key="dAssess" 
                 Positive="Alert" Satisfaction="10" 
                 Negative="Weary" Discomfort="4"/>
@@ -29,25 +29,22 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Image Source="pack://application:,,,/MVVMExtensions;component/Resources/ThumbUp.png" Width="20" Height="20"/>
+        <Image Source="pack://application:,,,/HypnosisRising.MVVMExtensions;component/Resources/ThumbUp.png" Width="20" Height="20"/>
         <TextBox Grid.Column="1" Text="{Binding Positive}"
-                 VerticalContentAlignment="Center"
                 Style="{StaticResource styFormInput}"/>
         <TextBox 
             Grid.Column="2" 
             Text="{Binding Satisfaction, StringFormat=##}" 
             IsEnabled="{Binding Positive, Converter={StaticResource EnableRank}}"
-            HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"
             Style="{StaticResource styFormInput}"/>
-        <Image Grid.Row="1" Source="pack://application:,,,/MVVMExtensions;component/Resources/ThumbDown.png" Width="20" Height="20"/>
+        <Image Grid.Row="1" Source="pack://application:,,,/HypnosisRising.MVVMExtensions;component/Resources/ThumbDown.png" Width="20" Height="20"/>
         <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Negative}"
-                 VerticalContentAlignment="Center"
                 Style="{StaticResource styFormInput}"/>
         <TextBox 
             Grid.Row="1" Grid.Column="2" 
             Text="{Binding Discomfort, StringFormat=##}"
             IsEnabled="{Binding Negative, Converter={StaticResource EnableRank}}"
-            HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"
+            HorizontalContentAlignment="Right"
             Style="{StaticResource styFormInput}"/>
     </Grid>
 </UserControl>

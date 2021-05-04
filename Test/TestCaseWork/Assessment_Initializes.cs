@@ -23,7 +23,7 @@ namespace HypnosisRising.Test.TestCaseWork
         [Test]
         public void IsSatisfaction_MinSUD()
         {
-            Assert.AreNotEqual(
+            Assert.AreEqual(
                 Assessment.s_NA_SU,
                 _assessment.Satisfaction,
                 $"Satisfaction is {_assessment.Satisfaction}, expected {Assessment.s_NA_SU}");

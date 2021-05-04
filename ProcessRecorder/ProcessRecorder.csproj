@@ -2,8 +2,11 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <AssemblyName>ProcessRecorder</AssemblyName>
+    <AssemblyName>HypnosisRising.ProcessRecorder</AssemblyName>
     <RootNamespace>HypnosisRising.ProcessRecorder</RootNamespace>
+    <Authors>Brian Balke</Authors>
+    <Company>Hypnosis Rising</Company>
+    <Product>HypnosisRising.CaseRecorder</Product>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
@@ -16,4 +19,7 @@
       <Private>true</Private>
     </ProjectReference>
   </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /Y $(TargetPath) $(SolutionDir)CaseRecorder\$(OutDir)Modules\" />
+  </Target>
 </Project>

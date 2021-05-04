@@ -5,6 +5,10 @@ using System.Windows.Markup;
 
 namespace HypnosisRising.MVVMExtensions.Converters
 {
+    /// <summary>
+    /// From Brian Lagunas, a uniform mechanism for populating a selection
+    /// control with enumeration values.
+    /// </summary>
     public class EnumBindingSourceExtension : MarkupExtension
     {
         private Type _enumType;

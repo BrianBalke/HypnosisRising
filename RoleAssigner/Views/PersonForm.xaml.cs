@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace HypnosisRising.RoleAssigner.Views
 {
     /// <summary>
-    /// Interaction logic for ViewA.xaml
+    /// Interaction logic for PersonForm.xaml
     /// </summary>
-    public partial class IndividualControl : UserControl
+    public partial class PersonForm : UserControl
     {
-        public IndividualControl()
+        public PersonForm()
         {
             InitializeComponent();
         }

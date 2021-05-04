@@ -4,7 +4,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:prism="http://prismlibrary.com/"
-             xmlns:model="clr-namespace:HypnosisRising.CaseWork.Process;assembly=CaseWork"
+             xmlns:model="clr-namespace:HypnosisRising.CaseWork.Process;assembly=HypnosisRising.CaseWork"
              xmlns:views="clr-namespace:HypnosisRising.ProcessRecorder.Views"
              xmlns:viewmodels="clr-namespace:HypnosisRising.ProcessRecorder.ViewModels"
              prism:ViewModelLocator.AutoWireViewModel="True"
@@ -13,7 +13,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MVVMExtensions;component/Resources/LayoutStyles.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/HypnosisRising.MVVMExtensions;component/Resources/LayoutStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <Style TargetType="TextBlock" x:Key="AssessTag">
                 <Setter Property="FontSize" Value="28"/>

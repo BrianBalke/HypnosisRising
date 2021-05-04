@@ -2,6 +2,11 @@
 
 namespace HypnosisRising.CaseWork.Process
 {
+    /// <summary>
+    /// A subjective characterization of response between positive and
+    /// negative extremes. Frequently used in questionaires, optionally 
+    /// including an "N/A" selection.
+    /// </summary>
     [Serializable]
     public class Likkert
     {

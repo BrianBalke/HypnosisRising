@@ -2,8 +2,11 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <AssemblyName>MVVMExtensions</AssemblyName>
+    <AssemblyName>HypnosisRising.MVVMExtensions</AssemblyName>
     <RootNamespace>HypnosisRising.MVVMExtensions</RootNamespace>
+    <Authors>Brian Balke</Authors>
+    <Company>Hypnosis Rising</Company>
+    <Product>HypnosisRising.CaseRecorder</Product>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Resources\ThumbDown.png" />
@@ -17,7 +20,6 @@
     <PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModels\" />
     <Folder Include="Views\" />
   </ItemGroup>
 </Project>

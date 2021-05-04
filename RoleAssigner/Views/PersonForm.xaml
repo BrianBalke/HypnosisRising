@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="HypnosisRising.RoleAssigner.Views.PersonForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:viewmodels="clr-namespace:HypnosisRising.RoleAssigner.ViewModels"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             xmlns:prism="http://prismlibrary.com/"
+             d:DesignHeight="110" d:DesignWidth="200"
+             d:DataContext="{x:Static viewmodels:DesignData.ShawVM}">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="PersonTemplates.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Grid.IsSharedSizeScope="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <ContentControl ContentTemplate="{StaticResource PersonNameInput}" Content="{Binding .}"/>
+        <ContentControl Grid.Row="1" ContentTemplate="{StaticResource PersonRoleInput}" Content="{Binding .}"/>
+    </Grid>
+</UserControl>

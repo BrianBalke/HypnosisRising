@@ -25,10 +25,10 @@ namespace HypnosisRising.ProcessRecorder.ViewModels
             get { return assessment; }
             set { 
                 assessment = value;
-                positive = assessment.Positive;
-                satisfaction = assessment.Satisfaction;
-                negative = assessment.Negative;
-                discomfort = Assessment.Discomfort;
+                Positive = assessment.Positive;
+                Satisfaction = assessment.Satisfaction;
+                Negative = assessment.Negative;
+                Discomfort = Assessment.Discomfort;
             }
         }
 

@@ -16,10 +16,39 @@ namespace HypnosisRising.CaseWork.Roles
     [Serializable]
     public class Client : Contact
     {
-        private Location homeAddress;
-        private Contact emergencyContact;
-        private Contact spouse;
+
+        private DateTime dateOfBirth = DateTime.Now;
+        private Location homeAddress = new Location();
+        private Contact emergencyContact = new Contact();
+        private Contact partner = new Contact();
         private int billingRate;
+
+        /// <summary>
+        /// Client is known as <see cref="Common.Environment.Self"/>
+        /// </summary>
+        public Client()
+        {
+            base.Context = Common.Environment.Self;
+        }
+
+        /// <summary>
+        /// All relationships are defined with respect to the client.
+        /// </summary>
+        public override Common.Environment Context
+        {
+            get { return base.Context; }
+            set { }
+        }
+
+        /// <summary>
+        /// Birthday.
+        /// </summary>
+        public DateTime DateOfBirth
+        {
+            get { return dateOfBirth; }
+            set { dateOfBirth = value; }
+        }
+
 
         /// <summary>
         /// Home address, as a <see cref="Location"/>.
@@ -40,12 +69,21 @@ namespace HypnosisRising.CaseWork.Roles
         }
 
         /// <summary>
-        /// Spouse, as a <see cref="Contact"/>
+        /// Partner, as a <see cref="Contact"/>
         /// </summary>
-        public Contact Spouse
+        public Contact Partner
         {
-            get { return spouse; }
-            set { spouse = value; }
+            get { return partner; }
+            set { partner = value; }
+        }
+
+        /// <summary>
+        /// Billing rate, in dollars.
+        /// </summary>
+        public int BillingRate
+        {
+            get { return billingRate; }
+            set { billingRate = value; }
         }
     }
 }

@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="HypnosisRising.PracticeExploration.Views.PracticeForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:viewmodels="clr-namespace:HypnosisRising.PracticeExploration.ViewModels"
+             xmlns:cwcmn="clr-namespace:HypnosisRising.CaseWork.Common;assembly=HypnosisRising.CaseWork"
+             xmlns:mvecv="clr-namespace:HypnosisRising.MVVMExtensions.Converters;assembly=HypnosisRising.MVVMExtensions"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             xmlns:prism="http://prismlibrary.com/"
+             d:DataContext="{x:Static viewmodels:DesignData.PracticeVM}">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HypnosisRising.MVVMExtensions;component/Resources/LayoutStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Name" Style="{StaticResource styFormLabel}"/>
+            <TextBox 
+                    Grid.Column="1" 
+                    Text="{Binding Name}" 
+                    Style="{StaticResource styFormInput}"/>
+            <TextBlock Grid.Row="1" Text="Registration" Style="{StaticResource styFormLabel}"/>
+            <ComboBox Grid.Row="1" Grid.Column="1"
+                        SelectedValue="{Binding Registration}"
+                        ItemsSource="{Binding Source={mvecv:EnumBindingSource {x:Type cwcmn:Business}}}"
+                        Style="{StaticResource styFormInput}"/>
+            <TextBlock Grid.Row="2" Text="Registrar" Style="{StaticResource styFormLabel}"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Registrar}"
+                        Style="{StaticResource styFormInput}"/>
+        </Grid>
+        <Button Content="Save" Command="{Binding UpdateCommand}"
+             HorizontalAlignment="Center" Margin="0,10,0,0"/>
+    </StackPanel>
+</UserControl>

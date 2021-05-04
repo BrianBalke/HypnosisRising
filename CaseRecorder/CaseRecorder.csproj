@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>HypnosisRising.CaseRecorder</AssemblyName>
+    <RootNamespace>HypnosisRising.CaseRecorder</RootNamespace>
+    <Authors>Brian Balke</Authors>
+    <Company>Hypnosis Rising</Company>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Prism.DryIoc" Version="8.0.0.1909" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CaseWork\CaseWork.csproj">
+      <Private>true</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\MVVMExtensions\MVVMExtensions.csproj">
+      <Private>true</Private>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
