@@ -99,7 +99,7 @@ namespace HypnosisRising.RoleAssigner.ViewModels
             };
 
         public static ClientFormViewModel TweetyVM =
-            new ClientFormViewModel() { Client = Tweety };
+            new ClientFormViewModel(null,null) { Client = Tweety };
 
         //***** ClientForm
 

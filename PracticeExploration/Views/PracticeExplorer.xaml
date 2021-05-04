@@ -11,8 +11,14 @@
         <BooleanToVisibilityConverter x:Key="ShowIfTrue"/>
     </UserControl.Resources>
     <TreeView>
-        <TreeViewItem Header="{Binding Name}"/>
-        <TreeViewItem Header="Hypnotists" ItemsSource="{Binding Therapists, Mode=OneWay}">
+        <TreeViewItem Header="{Binding Name}">
+            <TreeViewItem.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Edit" Command="{Binding EditPracticeCommand}"/>
+                </ContextMenu>
+            </TreeViewItem.ContextMenu>
+        </TreeViewItem>
+        <TreeViewItem Header="Hypnotists" ItemsSource="{Binding Hypnotists, Mode=OneWay}">
             <TreeViewItem.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="New" Command="{Binding AddHypnotistCommand}"/>
@@ -30,8 +36,23 @@
                 </HierarchicalDataTemplate>
             </TreeViewItem.ItemTemplate>
         </TreeViewItem>
-        <TreeViewItem Header="Clients">
-            
+        <TreeViewItem Header="Clients" ItemsSource="{Binding Clients, Mode=OneWay}">
+            <TreeViewItem.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="New" Command="{Binding AddClientCommand}"/>
+                </ContextMenu>
+            </TreeViewItem.ContextMenu>
+            <TreeViewItem.ItemTemplate>
+                <HierarchicalDataTemplate>
+                    <TextBlock Text="{Binding ClientID}">
+                        <TextBlock.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Edit" Command="{Binding ConfigureCommand}"/>
+                            </ContextMenu>
+                        </TextBlock.ContextMenu>
+                    </TextBlock>
+                </HierarchicalDataTemplate>
+            </TreeViewItem.ItemTemplate>
         </TreeViewItem>
         <TreeViewItem Header="Methods">
             

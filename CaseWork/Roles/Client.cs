@@ -17,12 +17,15 @@ namespace HypnosisRising.CaseWork.Roles
     public class Client : Contact
     {
 
-        private DateTime dateOfBirth;
-        private Location homeAddress;
-        private Contact emergencyContact;
-        private Contact partner;
+        private DateTime dateOfBirth = DateTime.Now;
+        private Location homeAddress = new Location();
+        private Contact emergencyContact = new Contact();
+        private Contact partner = new Contact();
         private int billingRate;
 
+        /// <summary>
+        /// Client is known as <see cref="Common.Environment.Self"/>
+        /// </summary>
         public Client()
         {
             base.Context = Common.Environment.Self;

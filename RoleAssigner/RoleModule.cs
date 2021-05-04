@@ -7,6 +7,16 @@ using Prism.Modularity;
 
 namespace HypnosisRising.RoleAssigner
 {
+    /// <summary>
+    /// Module that registers the ability to configure records from the
+    /// <see cref="HypnosisRising.CaseWork.Roles"/> module:
+    /// <list type="bullet">
+    /// <item><see cref="Person"/></item>
+    /// <item><see cref="Contact"/></item>
+    /// <item><see cref="Client"/></item>
+    /// <item><see cref="Therapist"/></item>
+    /// </list>
+    /// </summary>
     public class RoleModule : 
         IModule,
         IModelConfiguration<Person>,

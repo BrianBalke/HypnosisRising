@@ -13,7 +13,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProcessRecorder", "ProcessR
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVVMExtensions", "MVVMExtensions\MVVMExtensions.csproj", "{7FB83040-F7C3-4145-82CB-F7B7BCC329E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoleAssigner", "RoleAssigner\RoleAssigner.csproj", "{DE35BB52-109D-4CDE-B5F3-7CE0841E1D9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoleAssigner", "RoleAssigner\RoleAssigner.csproj", "{DE35BB52-109D-4CDE-B5F3-7CE0841E1D9B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CaseRecorder", "CaseRecorder\CaseRecorder.csproj", "{1A23F8FF-C737-47FF-BA07-FC2FD28459C9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestDataContract", "TestDataContract\TestDataContract.csproj", "{DFFF15D4-5E54-4F86-B22E-2164F442FF7B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PracticeExploration", "PracticeExploration\PracticeExploration.csproj", "{D032A798-846D-43F9-AB69-2F7EB3B4F4FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedConfiguration", "SharedConfiguration\SharedConfiguration.csproj", "{E2D503BC-86CF-48F4-8F27-F0C4B1F46C3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,12 +49,29 @@ Global
 		{DE35BB52-109D-4CDE-B5F3-7CE0841E1D9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE35BB52-109D-4CDE-B5F3-7CE0841E1D9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE35BB52-109D-4CDE-B5F3-7CE0841E1D9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A23F8FF-C737-47FF-BA07-FC2FD28459C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A23F8FF-C737-47FF-BA07-FC2FD28459C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A23F8FF-C737-47FF-BA07-FC2FD28459C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A23F8FF-C737-47FF-BA07-FC2FD28459C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFFF15D4-5E54-4F86-B22E-2164F442FF7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFFF15D4-5E54-4F86-B22E-2164F442FF7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFFF15D4-5E54-4F86-B22E-2164F442FF7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFFF15D4-5E54-4F86-B22E-2164F442FF7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D032A798-846D-43F9-AB69-2F7EB3B4F4FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D032A798-846D-43F9-AB69-2F7EB3B4F4FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D032A798-846D-43F9-AB69-2F7EB3B4F4FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D032A798-846D-43F9-AB69-2F7EB3B4F4FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2D503BC-86CF-48F4-8F27-F0C4B1F46C3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2D503BC-86CF-48F4-8F27-F0C4B1F46C3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2D503BC-86CF-48F4-8F27-F0C4B1F46C3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2D503BC-86CF-48F4-8F27-F0C4B1F46C3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3AF1EEC1-E884-4F7F-88E0-BA546DE95397} = {4736B4F7-D9E8-4448-87B3-BD904ED8CF18}
+		{DFFF15D4-5E54-4F86-B22E-2164F442FF7B} = {4736B4F7-D9E8-4448-87B3-BD904ED8CF18}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C00510C0-9C5D-4FC9-B80E-A51B6839EC71}

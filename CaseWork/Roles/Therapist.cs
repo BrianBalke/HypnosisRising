@@ -16,9 +16,9 @@ namespace HypnosisRising.CaseWork.Roles
     [Serializable]
     public class Therapist : Contact
     {
-        private Location officeAddress;
+        private Location officeAddress = new Location();
         private bool officeIsMailing;
-        private Location mailingAddress;
+        private Location mailingAddress = new Location();
         private string certifier;
         private string certificate;
         private string insurer;

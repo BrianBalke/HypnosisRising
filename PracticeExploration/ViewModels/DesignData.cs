@@ -1,4 +1,5 @@
 ﻿using HypnosisRising.CaseWork;
+using HypnosisRising.CaseWork.Common;
 using HypnosisRising.CaseWork.Roles;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,9 @@ using System.Text;
 
 namespace HypnosisRising.PracticeExploration.ViewModels
 {
+    /// <summary>
+    /// Psuedo-data to support view design.
+    /// </summary>
     public class DesignData
     {
         public static Therapist Brian = new Therapist()
@@ -31,19 +35,21 @@ namespace HypnosisRising.PracticeExploration.ViewModels
 
         public static Practice Innovators = new Practice()
         {
-            Name = "Innovators"
+            Name = "Innovators",
+            Registration = Business.Partnership,
+            Registrar = "State of California"
         };
 
-        public static PracticeExplorerViewModel InnovatorsVM = new PracticeExplorerViewModel()
-        {
-            Practice = Innovators
-        };
+        public static PracticeExplorerViewModel InnovatorsVM = 
+            new PracticeExplorerViewModel(null, null, null)
+            {
+                Practice = Innovators
+            };
 
-        static DesignData()
-        {
-            Innovators.Hypnotists.Add(Brian);
-            Innovators.Hypnotists.Add(Milton);
-            Innovators.Hypnotists.Add(John);
-        }
+        public static PracticeFormViewModel PracticeVM =
+            new PracticeFormViewModel()
+            {
+                Practice = Innovators
+            };
     }
 }

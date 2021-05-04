@@ -9,6 +9,19 @@ using System.Linq;
 
 namespace HypnosisRising.MVVMExtensions.ViewModels
 {
+    /// <summary>
+    /// Placeholder for extensions that encapsulate support for:
+    /// <list type="bullet">
+    /// <item>the 
+    /// <see cref="HypnosisRising.MVVMExtensions.Navigation"/> interfaces,
+    /// many of which are exchanged through the 
+    /// <see cref="Prism.Regions.NavigationParameters"/> mechanism.
+    /// </item>
+    /// <item>
+    /// Distributed model-driven validation.
+    /// </item>
+    /// </list>
+    /// </summary>
     public class ModelBinder : BindableBase, INotifyDataErrorInfo
     {
         protected IContainerRegistry _containerRegistry;

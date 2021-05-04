@@ -11,41 +11,42 @@ using System.Windows.Input;
 namespace HypnosisRising.PracticeExploration.ViewModels
 {
     /// <summary>
-    /// Exposes a <see cref="Therapist"/> for editing from an explorer. Implements
-    /// <see cref="IModelExplorer{Therapist}"/> to receive notifications from the
+    /// Exposes a <see cref="Client"/> for editing from an explorer. Implements
+    /// <see cref="IModelExplorer{Client}"/> to receive notifications from the
     /// configuration view.
     /// </summary>
-    public class TherapistSelectionViewModel : BindableBase, IModelExplorer<Therapist>
+    public class ClientSelectionViewModel : BindableBase, IModelExplorer<Client>
     {
         private IRegionManager _regions;
-        private IModelConfiguration<Therapist> _configuration;
+        private IModelConfiguration<Client> _configuration;
+        public DelegateCommand ConfigureCommand { get; private set; }
 
         /// <summary>
         /// Captures region navigation resources and configures commands.
         /// </summary>
         /// <param name="p_regions">For region navigation.</param>
         /// <param name="p_configuration">Identifying the configuration view.</param>
-        TherapistSelectionViewModel(
+        ClientSelectionViewModel(
             IRegionManager p_regions,
-            IModelConfiguration<Therapist> p_configuration )
+            IModelConfiguration<Client> p_configuration )
         {
             _regions = p_regions;
             _configuration = p_configuration;
             ConfigureCommand = new DelegateCommand(Configure);
-            (this as IModelSubscriber<Therapist>).Updater = 
-                            new DelegateCommand(OnTherapistChanged);
+            (this as IModelSubscriber<Client>).Updater = 
+                            new DelegateCommand(OnClientChanged);
         }
 
-        private Therapist therapist;
+        private Client _client;
 
         /// <summary>
         /// Target instance. Defines ID in setter.
         /// </summary>
-        public Therapist Therapist
+        public Client Client
         {
-            get { return therapist; }
-            set { 
-                therapist = value;
+            get { return _client; }
+            set {
+                _client = value;
                 SetID();
             }
         }
@@ -56,38 +57,36 @@ namespace HypnosisRising.PracticeExploration.ViewModels
         /// </summary>
         private void SetID()
         {
-            TherapistID = 
-                therapist.FirstName + " " +
-                therapist.LastName + 
+            ClientID = 
+                Client.FirstName + " " +
+                Client.LastName + 
                 " - " + 
-                therapist.Certificate;
+                Client.DateOfBirth.ToString("yyyy-MM-dd");
         }
 
-        private string _therapistID;
+        private string _ClientID;
         /// <summary>
         /// Text representing the instance in the explorer.
         /// </summary>
-        public string TherapistID
+        public string ClientID
         {
-            get { return _therapistID; }
-            set { SetProperty(ref _therapistID, value); }
+            get { return _ClientID; }
+            set { SetProperty(ref _ClientID, value); }
         }
-
-        public DelegateCommand ConfigureCommand { get; private set; }
 
         /*=====================================================================
          ===== IModeExplorer implementation.
          ====================================================================*/
 
-        ICommand IModelSubscriber<Therapist>.Updater { get; set; }
-        IModelOrganizer IModelExplorer<Therapist>.Organizer { get; set; }
-        Therapist IModelSubscriber<Therapist>.Instance => therapist;
+        ICommand IModelSubscriber<Client>.Updater { get; set; }
+        IModelOrganizer IModelExplorer<Client>.Organizer { get; set; }
+        Client IModelSubscriber<Client>.Instance => _client;
 
         /// <summary>
-        /// Delegate to update <see cref="TherapistID"/> when configuration
+        /// Delegate to update <see cref="ClientID"/> when configuration
         /// view updates.
         /// </summary>
-        public void OnTherapistChanged()
+        public void OnClientChanged()
         {
             SetID();
         }
@@ -97,15 +96,16 @@ namespace HypnosisRising.PracticeExploration.ViewModels
         /// </summary>
         public void Configure()
         {
-            var p = new NavigationParameters();
-            p.Add(
-                IModelExplorer<Therapist>.Key, 
-                this as IModelExplorer<Therapist>);
             _regions.RequestNavigate(
-                (this as IModelExplorer<Therapist>).Organizer.SelectRegion(
+                (this as IModelExplorer<Client>).Organizer.SelectRegion(
                                     IModelOrganizer.Purpose.Configure,
-                                    typeof(Therapist)),
-                _configuration.Uri, p); ;
+                                    typeof(Client)),
+                _configuration.Uri, 
+                new NavigationParameters()
+                {
+                    {   IModelExplorer<Client>.Key,
+                        this as IModelExplorer<Client> }
+                } );
         }
     }
 }

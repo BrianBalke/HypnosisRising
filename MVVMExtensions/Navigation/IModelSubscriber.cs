@@ -1,4 +1,5 @@
-﻿/// <summary>
+﻿using System.Windows.Input;
+/// <summary>
 /// The Navigation namespace defines mechanisms for coordination of model
 /// definition across PRISM modules. The goal is to allow holders of
 /// configurable instances to discover View based solely upon the instance
@@ -34,6 +35,7 @@ namespace HypnosisRising.MVVMExtensions.Navigation
     /// </summary>
     /// <typeparam name="T">Model type.</typeparam>
     /// <seealso cref="IModelExplorer"/>
+    /// <seealso cref="ModelSubForm"/>
     public interface IModelSubscriber<T>
     {
         /// <summary>
@@ -41,13 +43,8 @@ namespace HypnosisRising.MVVMExtensions.Navigation
         /// </summary>
         public T Instance { get; }
         /// <summary>
-        /// Callback is parameterless.
+        /// Command to coordinate data capture.
         /// </summary>
-        public delegate void Subscription();
-        /// <summary>
-        /// Callback upon capture, to coordinate presentation at the 
-        /// invoker.
-        /// </summary>
-        public Subscription Updater { get; }
+        ICommand Updater { get; set; }
     }
 }

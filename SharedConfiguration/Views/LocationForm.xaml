@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="HypnosisRising.SharedConfiguration.Views.LocationForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:viewmodels="clr-namespace:HypnosisRising.SharedConfiguration.ViewModels"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             xmlns:prism="http://prismlibrary.com/"
+             d:DataContext="{x:Static viewmodels:DesignData.HQVM}"
+            >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HypnosisRising.MVVMExtensions;component/Resources/LayoutStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Street1" Style="{StaticResource styFormLabel}"/>
+        <TextBox 
+                Grid.Column="1" 
+                Text="{Binding Street1}" 
+                Style="{StaticResource styFormInput}"/>
+        <TextBlock Grid.Row="1" Text="Street2" Style="{StaticResource styFormLabel}"/>
+        <TextBox 
+                Grid.Row="1" Grid.Column="1" 
+                Text="{Binding Street2}" 
+                Style="{StaticResource styFormInput}"/>
+        <TextBlock Grid.Row="2" Text="City" Style="{StaticResource styFormLabel}"/>
+        <TextBox 
+                Grid.Row="2" Grid.Column="1" 
+                Text="{Binding City}" 
+                Style="{StaticResource styFormInput}"/>
+        <TextBlock Grid.Row="3" Text="State" Style="{StaticResource styFormLabel}"/>
+        <TextBox 
+                Grid.Row="3" Grid.Column="1" 
+                Text="{Binding State}" 
+                Style="{StaticResource styFormInput}"/>
+        <TextBlock Grid.Row="4" Text="Zip" Style="{StaticResource styFormLabel}"/>
+        <TextBox 
+                Grid.Row="4" Grid.Column="1" 
+                Text="{Binding Zip}" 
+                Style="{StaticResource styFormInput}"/>
+        <TextBlock Grid.Row="5" Text="Country" Style="{StaticResource styFormLabel}"/>
+        <TextBox 
+                Grid.Row="5" Grid.Column="1" 
+                Text="{Binding Country}" 
+                Style="{StaticResource styFormInput}"/>
+    </Grid>
+</UserControl>

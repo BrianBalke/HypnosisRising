@@ -1,4 +1,5 @@
-﻿using HypnosisRising.CaseWork.Roles;
+﻿using HypnosisRising.CaseWork.Process;
+using HypnosisRising.CaseWork.Roles;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -24,6 +25,7 @@ namespace HypnosisRising.CaseWork
         private DateTime firstContact;
         private bool isActive;
         private List<Clinician> clinicians = new List<Clinician>();
+        private List<Goal> goals = new List<Goal>();
 
         /// <summary>
         /// Default constructor. Sets the case to open.
@@ -74,7 +76,16 @@ namespace HypnosisRising.CaseWork
         /// </summary>
         public List<Clinician> Clinicians
         {
-            get { return clinicians = new List<Clinician>(); }
+            get { return clinicians; }
         }
+
+        /// <summary>
+        /// Record of <see cref="Goal"/> pursued during case.
+        /// </summary>
+        public List<Goal> Goals
+        {
+            get { return goals; }
+        }
+
     }
 }

@@ -13,7 +13,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/HypnosisRising.MVVMExtensions;component/Resources/LayoutStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <mvecv:IsStringEmptyConverter x:Key="EnableRank"/>
+            <mvecv:IsStringDefinedConverter x:Key="EnableRank"/>
             <viewmodels:AssessmentControlViewModel x:Key="dAssess" 
                 Positive="Alert" Satisfaction="10" 
                 Negative="Weary" Discomfort="4"/>

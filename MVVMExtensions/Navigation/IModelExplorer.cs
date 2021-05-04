@@ -14,7 +14,12 @@ namespace HypnosisRising.MVVMExtensions.Navigation
         /// <summary>
         /// Key to use in NavigationParameters.
         /// </summary>
-        const string Key = "MVVMexplorer";
+        const string KeyRoot = "MVVMexplorer";
+        /// <summary>
+        /// Key used in <see cref="Prism.Regions.NavigationParameters"/>
+        /// transmission.
+        /// </summary>
+        static string Key { get => KeyRoot + "." + typeof(T).ToString(); }
         /// <summary>
         /// Region assigner.
         /// </summary>

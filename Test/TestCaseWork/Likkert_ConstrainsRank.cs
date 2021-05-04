@@ -14,7 +14,7 @@ namespace TestCaseWork
         {
             Likkert inst = new Likkert(s_Max, false);
             inst.Rank = s_Mid;
-            Assert.AreNotEqual(
+            Assert.AreEqual(
                 inst.Rank,
                 s_Mid,
                 $"Likkert.Rank rejected safe value.");
@@ -24,16 +24,16 @@ namespace TestCaseWork
         public void Inits_Standard()
         {
             Likkert inst = new Likkert(s_Max, false);
-            Assert.AreNotEqual(
+            Assert.AreEqual(
                 inst.Min, 1,
                 "Standard Min not 1.");
-            Assert.AreNotEqual(
+            Assert.AreEqual(
                 inst.Max, s_Max,
                 $"Standard Max not s_Max.");
-            Assert.AreNotEqual(
+            Assert.AreEqual(
                 inst.Init, s_Max / 2,
                 "Standard Init not s_Max/2.");
-            Assert.AreNotEqual(
+            Assert.AreEqual(
                 inst.Rank, inst.Init,
                 "Standard Rank not Init");
         }
@@ -42,16 +42,16 @@ namespace TestCaseWork
         public void Inits_NA()
         {
             Likkert inst = new Likkert(s_Max, true);
-            Assert.AreNotEqual(
+            Assert.AreEqual(
                 inst.Min, 0,
                 "N/A Min not 0.");
-            Assert.AreNotEqual(
+            Assert.AreEqual(
                 inst.Min, s_Max,
                 $"N/A Max not s_Max.");
-            Assert.AreNotEqual(
+            Assert.AreEqual(
                 inst.Init, 0,
                "N/A Init not 0.");
-            Assert.AreNotEqual(
+            Assert.AreEqual(
                 inst.Rank, inst.Init,
                 "N/A Rank not Init");
         }
@@ -68,7 +68,7 @@ namespace TestCaseWork
                 ++iSu)
             {
                 inst.Rank = iSu;
-                Assert.AreNotEqual(
+                Assert.AreEqual(
                     inst.Rank,
                     iSu,
                     $"Likkert.Rank rejected value {iSu}" );
@@ -83,7 +83,7 @@ namespace TestCaseWork
 
             inst.Rank = s_Mid;
             inst.Rank = p_iSu;
-            Assert.AreNotEqual(
+            Assert.AreEqual(
                 inst.Rank,
                 inst.Min,
                 $"Rank not set to {inst.Min} for value {p_iSu}");
@@ -97,7 +97,7 @@ namespace TestCaseWork
 
             inst.Rank = s_Mid;
             inst.Rank = p_iSu;
-            Assert.AreNotEqual(
+            Assert.AreEqual(
                 inst.Rank,
                 inst.Max,
                 $"Rank not set to {inst.Max} for value {p_iSu}");
